@@ -1,17 +1,13 @@
-// src/lib/routes/rootRoute.tsx
-import {
-    createRootRoute,
-    createRoute,
-    Outlet,
-} from '@tanstack/react-router';
+import { createRootRoute, Outlet, Link } from '@tanstack/react-router';
 import { homeRoute } from './homeRoute';
 import { aboutRoute } from './aboutRoute';
+import { userRoute } from './userRoute'; // 👈 Add this
 
 export const rootRoute = createRootRoute({
     component: () => (
         <div>
             <nav>
-                <a href="/">Home</a> | <a href="/about">About</a>
+                <Link to="/">Home</Link> | <Link to="/about">About</Link> | <Link to="/user/42">User 42</Link>
             </nav>
             <hr />
             <Outlet />
@@ -19,4 +15,8 @@ export const rootRoute = createRootRoute({
     ),
 });
 
-export const routeTree = rootRoute.addChildren([homeRoute, aboutRoute]);
+export const routeTree = rootRoute.addChildren([
+    homeRoute,
+    aboutRoute,
+    userRoute
+]);
