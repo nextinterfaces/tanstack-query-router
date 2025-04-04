@@ -2,16 +2,17 @@
 import {
     createRootRoute,
     createRoute,
-    Outlet,
+    Outlet, Link
 } from '@tanstack/react-router';
 import { homeRoute } from './homeRoute';
 import { aboutRoute } from './aboutRoute';
+
 
 export const rootRoute = createRootRoute({
     component: () => (
         <div>
             <nav>
-                <a href="/">Home</a> | <a href="/about">About</a>
+                <Link to="/">Home</Link> | <Link to="/about">About</Link>
             </nav>
             <hr />
             <Outlet />
